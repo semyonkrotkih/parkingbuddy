@@ -1,0 +1,20 @@
+﻿
+    <h4>Looking for a parking near you?</h4>
+    <div>
+        Choose one of the available parkings
+    </div>
+    <div class="suggested-parking">
+        <div ng-repeat="parking in globalVariables.suggestedLots">
+            <a ng-click="ctrl.panToParkingLot(parking.Id)">
+                <span class="p-icon"></span>
+                <span class="p-address">{{parking.Street.Name}}{{parking.HouseNumber ? ' ' + parking.HouseNumber: ''}}</span>
+                <span class="p-city">{{parking.Street.ZipCode ? ' ' + parking.Street.ZipCode: ''}}{{parking.Street.District ? ' ' + parking.Street.District: ''}}</span>
+            </a>
+        </div>
+    </div>
+    <div class="panel-buttons">
+        <a class="button-skip" ng-click="mapFunction.editMode = 0">Skip</a>
+        <a class="button-ok icon flaticon-turn24" ng-class="{'disabled': !mapFunction.selectedParkingLot}" ng-click="ctrl.calculateRoute($event)">Get direction</a>
+    </div>
+    
+

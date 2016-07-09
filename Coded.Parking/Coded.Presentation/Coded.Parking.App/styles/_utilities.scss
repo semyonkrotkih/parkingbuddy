@@ -1,0 +1,476 @@
+.btn {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.button-holder {
+    cursor: pointer;
+}
+
+.button-green {
+    display: block;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: #00e676;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: $white;
+    margin-top: 15px;
+
+    &:hover {
+        text-decoration: none;
+        background: darken(#00e676, 15%);
+    }
+
+    &.disabled
+    {
+       background-color: gray;
+    }
+    &.disabled:hover
+    {
+       text-decoration: none;
+        background: darken(gray, 15%);
+    }
+}
+
+.button-red {
+    display: block;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: #ff1744;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: $white;
+
+    &:hover {
+        text-decoration: none;
+        background: darken(#ff1744, 15%);
+    }
+}
+
+.button-apple {
+    display: block;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: #558b2f;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $white;
+
+    &:hover {
+        text-decoration: none;
+        background: darken(#558b2f, 15%);
+    }
+}
+
+.button-maroon {
+    display: block;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: $maroon;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $white;
+
+    &:hover {
+        text-decoration: none;
+        background: darken($maroon, 15%);
+    }
+}
+
+.button-gray {
+    display: block;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: #bdbdbd;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: $white;
+
+    &:hover {
+        text-decoration: none;
+        background: darken(#bdbdbd, 15%);
+    }
+}
+
+.button-black {
+    display: block;
+    padding: 10px 25px 10px 25px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    background: $itemedit-dropdown-state-selected;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #999;
+
+    &:hover {
+        text-decoration: none;
+        /*background: darken($itemedit-dropdown-state-selected, 15%);*/
+        color: $white;
+    }
+}
+
+.button-small {
+    display: inline-block;
+}
+
+.panel-buttons {
+    margin: 10px 0px 0px 0px;
+    height: 40px;
+
+    .button-ok {
+        padding: 10px 25px 10px 25px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        background: #009688;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        color: $white;
+        float: right;
+
+        &:hover {
+            text-decoration: none;
+            background: $maroon-flush;
+        }
+
+        &.disabled
+        {
+           background-color: gray;
+           cursor: default!important;
+        }
+        &.disabled:hover
+        {
+           text-decoration: none;
+           cursor: default!important;
+           //background: darken(gray, 15%);
+        }
+    }
+    .button-skip {
+        padding: 10px 25px 10px 0px;
+        float: left;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &:after
+    {
+        content: ' ';
+        clear:both;
+    }
+}
+
+.button-transparent {
+    display: inline-block;
+    vertical-align: top;
+    padding: 14px;
+    text-transform: uppercase;
+    background: transparent;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: $white;
+
+    &:hover {
+        text-decoration: none;
+        background: darken(#8bc34a, 5%);
+    }
+}
+
+.btn-circle {
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 42px;
+    height: 42px;
+    background: #d81b60;
+    color: $white;
+    text-align: center;
+    padding: 1px;
+    font-size: 20px;
+    line-height: 1em;
+
+    span {
+        line-height: 40px;
+    }
+
+    &:hover {
+        text-decoration: none;
+        background: darken(#d81b60, 15%);
+    }
+}
+
+.btn-add-new {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 70px;
+    line-height: 1px;
+    color: #00e676;
+    background: #fff;
+    border-radius: 100%;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,.13);
+    z-index: 999;
+
+    &:hover {
+        text-decoration: none;
+        color: darken(#00e676, 20%);
+    }
+}
+
+.hidein-mobile {
+    @include mq($until: tablet) {
+        display: none !important;
+    }
+}
+
+.hidein-tablet {
+    @include mq($until: desktop) {
+        display: none !important;
+    }
+}
+
+.hidein-desktop {
+    @include mq($from: desktop) {
+        display: none !important;
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.iscroll-wrapper {
+    overflow: hidden;
+    position: relative;
+
+    .scroller {
+        position: absolute;
+        /* Prevent elements to be highlighted on tap */
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+        /* Put the scroller into the HW Compositing layer right from the start */
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        width: 100%;
+    }
+}
+
+.dropdown-menu {
+    position: relative;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    .dropdown-opener {
+        display: block;
+        background: #ad1457;
+        text-decoration: none;
+        color: $white;
+        padding: 13px 52px 13px 20px;
+        position: relative;
+
+        &:after {
+            content: '\e629';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 52px;
+            bottom: 0;
+            text-align: center;
+            @include minSide;
+            font-size: 22px;
+            line-height: 50px;
+        }
+
+        &.active {
+            &:after {
+                background: #a50551;
+                content: '\e62a';
+            }
+        }
+    }
+
+    .dropdown {
+        text-align: left;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #a50551;
+        z-index: 99;
+        overflow: hidden;
+
+        ul {
+            @extend %listreset;
+        }
+
+        a {
+            display: block;
+            padding: 13px 20px;
+            color: $white;
+            text-decoration: none;
+
+            &:hover {
+                background: #ad1457;
+            }
+        }
+    }
+}
+
+.department-dropdown-menu {
+    float: right;
+    text-align: right;
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+
+    @include mq($from: tablet) {
+        max-width: 40%;
+    }
+
+    @include mq($from: desktop) {
+        max-width: 24%;
+    }
+
+    .dropdown-opener {
+        font-weight: 800;
+        display: inline-block;
+        vertical-align: top;
+        color: #999;
+        position: relative;
+        text-transform: uppercase;
+        background: none;
+
+        &:after {
+            background: none;
+        }
+
+        &.active {
+            &:after {
+                background: none;
+            }
+        }
+
+        &.single {
+            &:after {
+                content: "" !important;
+            }
+        }
+    }
+
+    .dropdown {
+        width: 250px;
+        padding-top: 22px;
+        background: $white;
+
+        @include mq($until: tablet) {
+            padding-top: 13px;
+        }
+
+        ul {
+            @extend %listreset;
+            padding: 13px 10px;
+            border-radius: 2px;
+
+            li {
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 16px;
+                padding: 14px 10px;
+                text-transform: uppercase;
+
+                a {
+                    color: #999;
+
+                    &:hover {
+                        text-decoration: none;
+                        color: darken(#999, 15);
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.receipt-wrapper {
+    position: relative;
+    z-index: 999999;
+
+    .receipt {
+        width: 450px;
+        height: 150px;
+        text-align: left;
+        white-space: normal;
+        margin: 0 auto;
+        padding: 25px 20px;
+        background-color: #8bc34a;
+        color: $white;
+        font-weight: 600;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: -150px;
+        -webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,.13);
+        -moz-box-shadow: 0 0 2px 2px rgba(0,0,0,.13);
+        box-shadow: 0 0 2px 2px rgba(0,0,0,.13);
+        -moz-transition: transform 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out;
+        -webkit-transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out;
+
+        &.active {
+            -moz-transform: translate3d(0, 175px, 0);
+            -ms-transform: translate3d(0, 175px, 0);
+            -o-transform: translate3d(0, 175px, 0);
+            -webkit-transform: translate3d(0, 175px, 0);
+            transform: translate3d(0, 175px, 0);
+        }
+
+        .title {
+            display: block;
+            font-size: 16px;
+            line-height: 20px;
+            margin: 0 0 26px;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.row {
+    @extend %clearfix;
+}

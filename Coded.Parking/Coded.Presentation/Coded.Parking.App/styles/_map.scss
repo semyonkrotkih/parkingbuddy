@@ -1,0 +1,180 @@
+	#parking-info
+    {
+        div
+        {
+            margin: 0;
+        }
+        h4
+        {
+            padding: 0;
+            margin: 0;
+        }
+        label
+            {
+            width: 110px;
+            display: inline-block;
+        }
+        input,select,textarea
+        {
+            width: 200px;
+        }
+        ul
+        {
+            @extend %listreset;
+            li
+            {
+                display: inline-block;
+                color: $dgray;
+                font-size: 14px;
+                &:not(:last-of-type):after
+                {
+                   content: '>';
+                   margin: 8px;
+                }
+            }
+        }
+        a.menu-active
+        {
+            color: #00e676;
+        }
+
+        .misc-icon
+        {
+            max-height: 25px;
+            max-width: 25px;
+            line-height: 20px;
+            vertical-align:middle;
+            font-size: 12px; 
+            color: lightgray; 
+            font-weight: bold;
+        }
+        .red-text
+        {
+            color: $maroon;
+        }
+        .misc-icon-even-house
+        {
+            content: url('/content/img/icon/even_numbers.png');
+        }
+        .misc-icon-uneven-house
+        {
+            content: url('/content/img/icon/uneven_numbers.png');
+        }
+        .misc-icon-middle-road
+        {
+            content: url('/content/img/icon/middle_road.png');
+        }
+        .misc-icon-parking-area
+        {
+            content: url('/content/img/icon/parking_area.png');
+        }
+        .misc-icon-tourist-bus
+        {
+            content: url('/content/img/icon/tourist_bus.png');
+        }
+        .misc-icon-embassy
+        {
+            content: url('/content/img/icon/embassy.png');
+        }
+        .misc-icon-visitor
+        {
+            content: url('/content/img/icon/visitor.png');
+        }
+        .misc-icon-shared-car
+        {
+            content: url('/content/img/icon/shared_car.png');
+        }
+        .misc-icon-electric-car
+        {
+            content: url('/content/img/icon/electric_car.png');
+        }
+        .misc-icon-disabled-car
+        {
+            content: url('/content/img/icon/disabled_car.png');
+        }
+        .misc-icon-motobike
+        {
+            content: url('/content/img/icon/motobike.png');
+        }
+        .misc-icon-private-parking
+        {
+            content: url('/content/img/icon/private_parking.png');
+        }
+        .misc-icon-taxi
+        {
+            content: url('/content/img/icon/taxi.png');
+            padding-bottom: 10px;
+        }
+        .misc-icon-internal-traffic
+        {
+            content: url('/content/img/icon/internal_traffic.png');
+        }
+        .misc-icon-municipal-parking
+        {
+            content: url('/content/img/icon/municipal_parking.png');
+        }
+        .misc-icon-private-road
+        {
+            content: url('/content/img/icon/private_road.png');
+        }
+	}
+
+    .suggested-parking
+    {
+        a
+        {
+            text-decoration: none;
+            &:hover
+            {
+                text-decoration: none;
+            }
+        }
+        div
+        {
+            padding-bottom: 5px;
+        }
+        .p-icon
+        {
+            vertical-align:middle;
+            margin-right: 5px;
+            width: 18px;
+            height: 18px;
+            content: url('/content/img/icon/p.png');
+        }
+        .p-address
+        {
+            display: inline-block;
+            font-weight: bold;
+            color: #000000;
+        }
+        .p-city
+        {
+            display: inline-block;
+        }
+        .p-duration
+        {
+            color: $grass-green;
+            font-size: 14px;
+            padding:0;
+            text-align:right;
+        }
+        .p-distance
+        {
+            text-align:right;
+        }
+        .route-item
+        {
+            position: relative;
+            cursor: pointer;
+            padding: 5px 15px;
+            &.active:before
+            {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-left: 5px solid $grass-green;
+                height: 100%;
+            }
+        }
+    }

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html ng-app="parkingBuddy" lang="da-DK" xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8" />
+    <title>ParkBuddy - find din parkering nemt og hurtigt</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+    <link href="styles/parking.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="Scripts/Framework/jQuery/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/Framework/jQuery/jquery.validate.min.js"></script>
+    <script src="Scripts/Framework/Angular/angular.min.js"></script>
+    <script src="Scripts/Framework/Angular/angular-route.min.js"></script>
+    <script src="Scripts/Framework/GoogleMaps/markerclusterer.js"></script>
+    <script src="Scripts/Framework/bootstrap/ui-bootstrap.min.js"></script>
+    
+    <script src="Scripts/03 Module/RouteConfig.js"></script>
+    <script src="Scripts/03 Module/TypeDefinitions.js"></script>
+    <script src="Scripts/05 Service/ParkingLotService.js"></script>
+    <script src="Scripts/02 Directive/ParkingMapDirective.js"></script>
+    <script src="Scripts/04 Controller/MainCtrl.js"></script>
+    <script src="Scripts/04 Controller/SignupCtrl.js"></script>
+    <script src="Scripts/04 Controller/LoginCtrl.js"></script>
+    <script src="Scripts/01 Filter/RangeFilter.js"></script>
+    <script src="Scripts/03 Module/AuthInterceptor.js"></script>
+    <script src="Scripts/03 Module/app.js"></script>
+</head>
+<body class="ng-cloak" ng-controller="mainCtrl as ctrl">
+    <div id="wrapper">
+        <header id="header">
+            <div class="container">
+                <div class="topbar">
+                    <div class="header-left">
+                        <div class="logo"><a href="#/"><img src="content/graphics/car-icon.png" alt="Logo"></a></div>
+                        <div class="search-block">
+                            <div class="autocomplete" ng-class="{'menu-active': showSearch === true || parkingLotFound}">
+                                <span ng-click="ctrl.toggleSearch($event)" ng-show="showSearch === false && parkingLotFound">{{parkingLotFound}}</span>
+                                <input ng-show="showSearch === true" name="search" id="search" type="text" placeholder="Street, zip code or district..." typeahead-on-select="ctrl.onSearchSelect($item, $model, $label)" ng-model="typeaheadModel" ng-change="parkingLotFound=''" ng-blur="showSearch=false" typeahead="addr.StreetName + (addr.ZipCode ? ', ' + addr.ZipCode : '') + (addr.District ? ', ' + addr.District : '') + (addr.City ? ', ' + addr.City : '') for addr in addresses | filter:$viewValue | limitTo:8" class="form-control" />
+                            </div>
+                            <div class="search-button">
+                                <a href="#" ng-click="ctrl.toggleSearch($event)">
+                                    <span class="icon icon-search large-icon"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right ng-cloak">
+                        <div class="user-info" ng-show="currentUser">
+                            <span class="username">
+                                <a href="#" ng-click="ctrl.toggleTopmenuDropdown($event)" ng-bind="currentUser.FirstName + ' ' + currentUser.LastName"></a>
+                            </span>
+                            <div class="profile-picture">
+                                <a href="#" ng-click="ctrl.toggleTopmenuDropdown($event)"><img ng-src="/content/img/profile/{{currentUser.Login || 'dummy'}}.png?width=44&fallback=/content/img/profile/dummy.png" alt="Profile picture"></a>
+                            </div>
+                        </div>
+                        <div class="top-menu" ng-class="{'menu-active': showTopmenuDropdown === true}">
+                            <a href="#" class="opener" ng-click="ctrl.toggleTopmenuDropdown($event)"><span class="icon icon-menu3"></span></a>
+                            <ul class="dropdown" ng-hide="currentUser">
+                                <li><a href="/account.html#/login"><span class="widget">Login</span></a></li>
+                                <li><a href="/account.html#/signup"><span class="widget">Signup</span></a></li>
+                            </ul>
+                            <ul class="dropdown" ng-show="currentUser">
+                                <li><a class="button link" ng-click="ctrl.logout()">Log off</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <nav id="nav" data-ng-class="{'menu-active': mapFunction.editMode != 0}">
+                    <div class="nav-holder">
+                        <div id="closeNav">
+                            <a ng-click="mapFunction.editMode = 0" class="icon icon-cross"></a>
+                        </div>
+                        <div ng-show="mapFunction.editMode == 1" ng-include src="'/templates/availability.html'"></div>
+                        <div ng-show="mapFunction.editMode == 2" ng-include src="'/templates/suggestedParking.html'"></div>
+                        <div ng-show="mapFunction.editMode == 3" ng-include src="'/templates/selectRoute.html'"></div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div id="main" ng-view class="ng-cloak">
+        </div>
+    </div>
+</body>
+</html>

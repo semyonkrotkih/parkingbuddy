@@ -1,0 +1,156 @@
+#wrapper {
+    // max-width: 1300px;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.container {
+
+    // margin: 0 auto;
+    @extend %clearfix;
+}
+
+.container-grid {
+    max-width: 1042px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+    @extend %clearfix;
+}
+
+form {
+    @extend %clearfix;
+}
+
+fieldset {
+    float: left;
+    width: 100%;
+}
+
+@-moz-document url-prefix() {
+    fieldset {
+        display: table-cell;
+    }
+}
+
+@media only screen and (min-width:1025px) {
+    .tel-link {
+        cursor: default;
+        pointer-events: none;
+    }
+}
+
+/* Grids */
+.gutter-sizer {
+    width: 1%;
+}
+
+.grid-sizer, .grid-item {
+    width: 100%;
+}
+
+@include mq($from: tablet) {
+    .grid-sizer, .grid-item {
+        width: 49%;
+    }
+}
+
+@include mq($from: desktop) {
+    .grid-sizer, .grid-item {
+        width: 32.3%;
+    }
+}
+
+@include mq($from: widescreen) {
+    .grid-sizer, .grid-item {
+        width: 24%;
+    }
+}
+
+@include mq($from: tvscreen) {
+    .grid-sizer, .grid-item {
+        width: 19%;
+    }
+}
+
+/* Front page Grids */
+.widget-wrapper {
+
+    @include mq($from: tablet) {
+        &.widget-wrapper-size {
+            max-width: calc(100% - 364px);
+        }
+    }
+
+    .gutter-sizer {
+        width: 0;
+    }
+
+    .widget-sizer, .widget-item {
+        width: 100%;
+    }
+
+    @include mq($from: desktop) {
+        .widget-sizer, .widget-item {
+            width: 50%;
+
+            &.medium {
+                width: 50%;
+            }
+
+            &.large {
+                width: 50%;
+            }
+
+            &.max {
+                width: 50%;
+            }
+        }
+    }
+
+    @include mq($from: widescreen) {
+        .widget-sizer {
+            //width: 1%;
+            width: calc(100% / 3);
+        }
+
+
+        .widget-item {
+            width: calc(100% / 3);
+
+            &.medium {
+                width: 50%;
+            }
+
+            &.large {
+                //width: calc(100% / 3 * 2 - 0.02%)
+                width: calc(100% / 3 * 2);
+            }
+
+            &.max {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.show-slide {
+    overflow: hidden;
+
+    .notification-section {
+        padding-bottom: 72px;
+        height: 100vh;
+        overflow: hidden;
+
+        .container {
+            height: 100%;
+            overflow: hidden;
+            padding-right: 0;
+        }
+    }
+}
+
+.large-icon
+{
+    font-size: 24px;
+}

@@ -1,0 +1,46 @@
+﻿<div id="parking-info">
+    <h4>Add parking spot...</h4>
+    <ul>
+        <li ><a ng-click="infowindowStep = 1" ng-class="{'menu-active' : infowindowStep == 1}">Address &amp; spaces</a></li>
+        <li ><a ng-click="infowindowStep = 2" ng-class="{'menu-active' : infowindowStep == 2}">Parking regulations</a></li>
+    </ul>
+    <div id="step1" ng-show="infowindowStep == 1">
+        <div>
+            <label for="streetName">Address</label><input type="text" id="streetName" style="width: 150px;" ng-model="mapFunction.selectedParkingLot.Street.Name" /><input type="text" id="house" style="width: 45px;margin-left:5px;" ng-model="globalVariables.selectedParkingLot.HouseNumber" />
+        </div>
+        <div>
+            <label for="zipCode">Zip code</label><input type="text" id="zipCode" ng-model="mapFunction.selectedParkingLot.Street.ZipCode" />
+        </div>
+        <div>
+            <label for="district">District</label><input type="text" id="district" ng-model="mapFunction.selectedParkingLot.Street.District" />
+        </div>
+        <div>
+            <label for="city">City</label><input type="text" id="city" ng-model="mapFunction.selectedParkingLot.Street.City" />
+        </div>
+        <div>
+            <label for="streetDirection">Street side</label><select id="streetDirection" ng-options="item.id as item.name for item in streetDirections" ng-model="mapFunction.selectedParkingLot.StreetDirection" />
+        </div>
+        <div>
+            <label for="parkingPlaces">Total spaces</label><input type="text" id="parkingPlaces" ng-model="mapFunction.selectedParkingLot.ParkingPlaces" />
+        </div>
+    </div>
+    <div id="step2" ng-show="infowindowStep == 2">
+        <div>
+            <label for="streetOwnership">Road authority</label><select id="streetOwnership" ng-options="item.id as item.name for item in streetOwnerships" ng-model="mapFunction.selectedParkingLot.Street.StreetOwnership" />
+        </div>
+        <div>
+            <label for="parkingZone">Payment zone</label><input id="parkingZone" type="text" ng-model="mapFunction.selectedParkingLot.ParkingZone.Name" disabled="disabled" />
+        </div>
+        <div>
+            <label for="parkingStandard">Parking standard</label><select id="parkingStandard" ng-options="item.id as item.name for item in parkingStandards" ng-model="mapFunction.selectedParkingLot.ParkingStandard" />
+        </div>
+        <div>
+            <label for="parkingRegulation">Special regulation</label><select id="parkingRegulation" ng-options="item.id as item.name for item in parkingRegulations" ng-model="mapFunction.selectedParkingLot.ParkingRegulation" />
+        </div>
+        <div>
+            <label for="notes">Extra notes</label><textarea id="notes" ng-model="mapFunction.selectedParkingLot.Notes"></textarea>
+        </div>
+     </div>
+    <p></p>
+    <a class="button-green link" ng-click="infoWindowButtonClick()" >{{infowindowStep == 1 ? 'Next' : 'Submit'}}</a>
+</div>

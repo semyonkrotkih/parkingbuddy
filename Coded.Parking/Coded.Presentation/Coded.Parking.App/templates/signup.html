@@ -1,0 +1,43 @@
+﻿<div ng-controller="signupCtrl as ctrl">
+    <div class="login-page">
+        <div class="content-box">
+            <div id="content">
+                <h1>Create account</h1>
+                <form class="login-form" ng-submit="ctrl.createUser()">
+                    <fieldset>
+                        <div class="input-field">
+                            <input type="text" class="input" placeholder="First name" id="firstName" name="firstName" ng-model="firstName" ng-minlength="3" title="Type first name" />
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="input" placeholder="Last name" id="lastName" name="lastName" ng-model="lastName" ng-minlength="3" title="Type last name" />
+                        </div>
+                        <div class="input-field">
+                            &nbsp;
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="input" placeholder="Login" id="login" name="login" ng-model="login" ng-minlength="3" title="Type login" />
+                        </div>
+                        <div class="input-row">
+                            <input type="text" class="input" placeholder="Password" id="password" name="password" ng-model="password" ng-minlength="3" title="Type password" />
+                        </div>
+                        <div class="input-field">
+                            &nbsp;
+                        </div>
+                        <div class="input-field">
+                            <input class="image-upload k-valid" id="profilePicture" name="profilePicture" type="file" accept="image/jpeg" kendo-upload="" files="filesArray" k-async="{ saveUrl: '/IntranetProviders/UploadUserImage.ashx', autoUpload: true }" k-options="fileUploadOptions" k-localization="{ select: '', headerStatusUploading: '', remove: 'Slet', headerStatusUploaded: '',  retry: 'Forsøg igen', statusFailed: 'Der opstod en fejl', statusUploaded: '', statusUploading: '', uploadSelectedFiles: 'Upload valgte filer', dropFilesHere: ''}" k-success="fileuploaded" data-role="upload" autocomplete="off" />
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="input" placeholder="Repeat password" id="repeatPassword" name="repeatPassword" ng-model="repeatPassword" ng-minlength="3" title="Repeat password" />
+                        </div>
+                        <div class="input-field">
+                            <input type="text" class="input" placeholder="E-mail" id="email" name="email" ng-model="email" ng-minlength="3" title="Type e-mail" />
+                        </div>
+                        <div class="form-button">
+                            <input type="submit" class="btn-submit" value="Create account" />
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

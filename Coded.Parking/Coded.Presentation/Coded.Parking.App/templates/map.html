@@ -1,0 +1,47 @@
+﻿<div>
+    <div parking-map style="width: 100%; height: 100vh;position:absolute;top:0px;left:0px;">
+    </div>
+    <div style="width: 100%; height: 100vh; position:absolute; top: 70px; left: 0px; background-color: white; opacity: 0.6; text-align:center;z-index: 20;" ng-show="isLoading" >
+        <img alt="Loading..." title="Loading..." src="/content/img/misc/spinner.gif" />
+    </div>
+    <footer id="footer">
+        <ul class="large-icon">
+            <li>
+                <a href="#" ng-click="ctrl.toggleGoToMyLocation($event)">
+                    <span class="icon flaticon-arrow1"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" ng-click="ctrl.toggleShowLayer($event)" ng-class="{'toggle-on': mapFunction.showLayer === true}">
+                    <span class="icon icon-map2"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" ng-click="ctrl.toggleAddParkingLot($event)" ng-class="{'toggle-on': mapFunction.addingParkingLot === true}">
+                    <span class="icon flaticon-map108"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" ng-click="ctrl.findParkingNearMe($event)" ng-class="{'toggle-on': mapFunction.editMode == 2}">
+                    <span class="icon flaticon-wifi98"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" ng-click="ctrl.calculateRoute($event)" ng-if="mapFunction.selectedParkingLot != null && !mapFunction.addingParkingLot">
+                    <span class="icon flaticon-turn24"></span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" ng-click="ctrl.reportAvailability($event)" ng-if="mapFunction.selectedParkingLot != null && !mapFunction.addingParkingLot">
+                    <span class="icon flaticon-favourite21"></span>
+                </a>
+            </li>
+
+        </ul>
+    </footer>
+</div>

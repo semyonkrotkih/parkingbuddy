@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #map {
+            width: 900px;
+            height: 800px;
+        }
+    </style>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+        var polyPoints = new Array();
+        var tinyMarker;
+        var polyShape;
+        var map;
+        var tinyIcon = new google.maps.MarkerImage(
+            'content/icons/marker_20_red.png',
+            new google.maps.Size(12, 20),
+            new google.maps.Point(0, 0),
+            new google.maps.Point(6, 16)
+        );
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+            center: new google.maps.LatLng(55.676098, 12.568337),
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(mapCanvas, mapOptions);
+        polyShape = new google.maps.Polyline({
+            path: [],
+            strokeColor: "FF0000",
+            strokeOpacity: "0.5",
+            strokeWeight: "2",
+        });
+        polyShape.setMap(map);
+        google.maps.event.addListener(polyShape, 'click', function (point) {
+            if (confirm("Do you want to close the polygon?"))
+            {
+                polyPoints.insertAt(polyPoints.length, polyPoints.getAt(0));
+                if (tinyMarker) tinyMarker.setMap(null);
+                tinyMarker = new google.maps.Marker({
+                    position: polyPoints.getAt(0),
+                    map: map,
+                    icon: tinyIcon
+                });
+            }
+        });
+        google.maps.event.addListener(map, 'click', mapClick);
+        map.data.loadGeoJson('http://localhost:1100/service/GetData.ashx');
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+      function mapClick(point) {
+          if (tinyMarker) tinyMarker.setMap(null);
+          polyPoints = polyShape.getPath();
+          // This codeline does the drawing on the map
+          polyPoints.insertAt(polyPoints.length, point.latLng); // or: polyPoints.push(point.latLng)
+          tinyMarker = new google.maps.Marker({
+              position: point.latLng,
+              map: map,
+              icon: tinyIcon
+          });
+          //logCoordinates();
+      }
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>

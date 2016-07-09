@@ -1,0 +1,43 @@
+#footer {
+	@extend %clearfix;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+	background: $ocean-blue;
+	z-index: 99999;
+    width: 100%;
+    ul {
+        @extend %listreset;
+    }
+    ul li {
+        display: inline-block;
+        margin:0px;
+        padding:0px;
+    }
+    .toggle-on {
+        background-color: $maroon-flush;
+    }
+    a {
+        display: block;
+        padding: 0px 75px;
+        color: $white;
+        &:hover {
+            text-decoration: none;
+			color: darken($white, 15%);
+		}
+    }
+    .large-icon
+    {
+        font-size: 30px;
+    }
+
+	@include mq($until: tablet) {
+		.large-icon
+        {
+            font-size: 24px;
+        }
+        a {
+            padding: 0px 20px;
+        }
+	}
+}

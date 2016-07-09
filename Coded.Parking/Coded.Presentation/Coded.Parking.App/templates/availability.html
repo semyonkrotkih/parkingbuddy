@@ -1,0 +1,23 @@
+﻿<div ng-if="!suggestedParkingShowReceipt">
+    <h4 ng-bind="globalVariables.availabilityReportParking.Street.Name"></h4>
+    <div>
+        Currently available places: <select ng-model="globalVariables.availabilityReportParking.AvailablePlaces" ng-options="n for n in [] | range:0:globalVariables.availabilityReportParking.PlaceNumber"></select>
+    </div>
+    <div>
+        <input type="checkbox" ng-model="globalVariables.availabilityReportParking.IsReportApproximate" id="inputApprox" /><label for="inputApprox">I don't have an exact number of free places, I am as precise as I can.</label>
+    </div>
+
+    <div class="panel-buttons">
+        <a class="button-skip" ng-click="mapFunction.editMode = 0">Cancel</a>
+        <a class="button-ok icon icon-checkmark" ng-class="{'disabled': (!globalVariables.availabilityReportParking || globalVariables.availabilityReportParking.AvailablePlaces < 0)}" ng-click="ctrl.sendAvailabilityReport()">Submit</a>
+    </div>
+
+</div>
+
+
+<div ng-if="suggestedParkingShowReceipt">
+    <h4><span class="icon icon-checkmark"></span>Thanks a million!</h4>
+    <div>
+        We have registered your report, so other users can benefit from your contribution.
+    </div>
+</div>

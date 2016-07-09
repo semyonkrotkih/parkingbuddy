@@ -1,0 +1,7 @@
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\bin\Debug\Coded.DataAccess.dll
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\bin\Debug\Coded.DataAccess.pdb
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\bin\Debug\MySql.Data.dll
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\obj\Debug\Coded.DataAccess.dll
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\obj\Debug\Coded.DataAccess.pdb
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\Coded.Parking\Coded.Parking\Coded.DataAccess\bin\Debug\Newtonsoft.Json.xml

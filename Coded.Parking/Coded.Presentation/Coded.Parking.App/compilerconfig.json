@@ -1,0 +1,7 @@
+[
+  {
+    "outputFile": "styles/parking.css",
+    "inputFile": "styles/all.scss",
+    "sourceMap": true
+  }
+]

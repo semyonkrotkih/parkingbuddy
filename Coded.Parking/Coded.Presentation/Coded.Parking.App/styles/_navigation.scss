@@ -1,0 +1,291 @@
+#nav {
+	width: 350px;
+	position: absolute;
+	left: -350px;
+    top: 70px;
+	z-index: 9;
+	overflow-y: auto;
+	/*display: none;*/
+    /*opacity: 0;*/
+    -webkit-transition: left ease-in-out 0.2s;
+    transition: left ease-in-out 0.2s;
+	.nav-holder {
+		background: $white;
+		padding: 10px;
+        #closeNav
+        {
+            text-align: right;
+            margin-bottom: 20px;
+            a:hover {
+                text-decoration: none;
+            }
+        }
+	}
+    a {
+        cursor: pointer;
+    }
+	.logo {
+		width: 100%;
+		margin: 0;
+		padding: 0 30px 20px;
+		img {
+			width: auto;
+		}
+	}
+	.user-info {
+		display: none;
+	}
+	ul {
+		@extend %listreset;
+		clear: both;
+	}
+	> ul {
+		border-top: 1px solid $wild-sand;
+		padding: 2px 0 0;
+	}
+	li {
+		text-transform: uppercase;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 24px;
+		a {
+			display: block;
+			position: relative;
+			padding: 13px 50px 14px 18px;
+			color: #666;
+			.icon {
+				width: 56px;
+				text-align: center;
+				font-size: 26px;
+				padding-right: 16px;
+			}
+			.icon-group {
+				font-size: 14px;
+			}
+			.icon-bullhorn {
+				font-size: 16px;
+			}
+			.icon-calender {
+				font-size: 28px;
+			}
+			span {
+				display: inline-block;
+				vertical-align: middle;
+				width: 186px;
+				padding: 0 0 0 16px;
+			}
+		}
+		&.has-dropdown {
+			> a {
+				&:after {
+					content: "\e629";
+					position: absolute;
+					margin-top: -14px;
+					right: 23px;
+					font-size: 26px;
+					top: 50%;
+					color: #676767;
+					@include minSide;
+				}
+			}
+			&:hover {
+				> a:after {
+					content: "\e62a";
+				}
+				.dropdown {
+					display: block;
+				}
+			}
+		}
+		&.has-dropdown:hover > a,
+		&.active > a,
+		a:hover {
+			text-decoration: none;
+			color: #d81b60;
+		}
+		li {
+			font-weight: 500;
+			font-size: 13px;
+			a {
+				min-height: 0;
+				padding: 6px 10px 6px 110px;
+			}
+		}
+	}
+	.dropdown {
+		background: $wild-sand;
+		padding: 9px 0;
+		display: none;
+	}
+	&.menu-active {
+		/*display: block;*/
+        left: 0;
+        /*opacity: 1;*/
+	}
+	@include mq($until: tablet) {
+		width: 280px;
+		.user-info {
+			display: block;
+			padding: 0 0 0 72px;
+			margin: 0 0 18px;
+			float: none;
+			width: 100%;
+			clear: both;
+			position: relative;
+			min-height: 44px;
+			white-space: nowrap;
+			&:after {
+				content: '';
+				display: inline-block;
+				vertical-align: middle;
+				min-height: 44px;
+				width: 1px;
+				overflow: hidden;
+			}
+			.username {
+				text-transform: uppercase;
+				display: inline-block;
+				vertical-align: middle;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 24px;
+				white-space: normal;
+				a {
+					color: #212121;
+					text-decoration: none;
+					&:hover {
+						color: lighten(#212121, 15);
+					}
+				}
+			}
+			.profile-picture {
+				position: absolute;
+				top: 50%;
+				left: 16px;
+				margin-top: -20px;
+				img {
+					width: 40px;
+					height: 40px;
+					border-radius: 100%;
+					&:hover {
+						opacity: 0.9;
+					}
+				}
+			}
+		}
+		> ul {
+			padding-top: 3px;
+		}
+		li {
+			font-size: 14px;
+			a {
+				padding: 12px 20px 12px 0;
+				.icon {
+					font-size: 20px;
+				}
+				.icon-group {
+					font-size: 12px;
+				}
+				.icon-bullhorn {
+					font-size: 16px;
+				}
+				.icon-calender {
+					font-size: 24px;
+				}
+			}
+			&.has-dropdown {
+				> a {
+					&:after {
+						right: 10px;
+					}
+				}
+			}
+			li {
+				a {
+					padding-left: 92px;
+				}
+			}
+		}
+		.dropdown {
+			padding: 10px 0;
+		}
+	}
+}
+.nav-opener {
+	color: $black;
+	font-size: 14px;
+	float: left;
+	line-height: 1em;
+	&:hover {
+		text-decoration: none;
+	}
+	@include mq($from: tablet) {
+		font-size: 25px;
+	}
+}
+.header-right {
+	float: right;
+}
+.top-menu {
+	float: left;
+	position: relative;
+	.opener {
+		font-size: 25px;
+		line-height: 1em;
+		display: inline-block;
+		vertical-align: top;
+		padding: 5px 10px;
+		color: $white;
+		&:hover {
+			text-decoration: none;
+			color: darken($white, 15%);
+		}
+	}
+	@include mq($until: tablet) {
+		margin: -2px -8px 0 0;
+	}
+	.dropdown {
+		display: none;
+		@extend %listreset;
+		position: absolute;
+		/*top: 1px;*/
+		right: -20px;
+		z-index: 99;
+		background: $ocean-blue;
+		border-radius: 2px;
+		overflow: hidden;
+		width: 197px;
+		padding: 0;
+		text-align: left;
+		li {
+			font-size: 14px;
+			line-height: 16px;
+			font-weight: 500;
+			padding: 0;
+            width: 100%;
+			text-transform: uppercase;
+            cursor: pointer;
+			a {
+				color: $white;
+				text-decoration: none;
+                display: block;
+                padding: 13px 25px;
+				&:hover {
+					background: $maroon;
+				}
+			}
+            @include mq($until: tablet) {
+		        font-size: 12px;
+	        }
+		}
+	}
+	&.menu-active .dropdown {
+		display: block;
+	}
+	@include mq($from: tablet) {
+		padding: 8px 0 0;
+		.nav-opener {
+			// font-size: 14px;
+		}
+	}
+}

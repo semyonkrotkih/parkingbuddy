@@ -1,0 +1,49 @@
+// color variables
+$white: #fff;
+$black: #000;
+$dgray: #999;
+
+$gallery: #ebebeb;
+$sushi: #8bc34a;
+
+$mine-shaft: #212121;
+$wild-sand: #f5f5f5;
+$torch-red: #ff1744;
+$maroon: #c2185b;
+$maroon-flush: #c2185b;
+$grass-green: #8bc34a;
+$theme: #d81b60;
+$dark-green: #2F5028;
+$deep-blue: #294C82;
+$juicy-green: #4CAF50;
+$ocean-blue: #009688;
+
+$itemlist-dropdown-state-selected: #a50551;
+$itemlist-dropdown-default: #ad1457;
+$activity-card-background: #42A4F5;
+
+$itemedit-dropdown-state-selected: #424242;
+$itemedit-dropdown-default: #424242;
+
+$form-input: #212121;
+
+// base variables
+$base-text-color: $mine-shaft;
+$base-background-color: $wild-sand;
+$base-link-color: $dgray;
+$base-form-text-color: $black;
+$base-form-placeholder-color: $mine-shaft;
+$base-input-border-color: $mine-shaft;
+
+$base-font-size: 14px;
+$base-line-height: 1.714;
+$base-font-family: 'roboto', 'Arial', 'Helvetica', sans-serif;
+$base-text-interval: ($base-font-size * $base-line-height);
+
+$bitter: 'Bitter', Georgia, Times, "Times New Roman", serif;		
+$opensans: 'Open Sans', $base-font-family;
+
+$base-min-width: 320px;
+
+// @font-face-serif: 
+// @font-face-sans-serif: 

@@ -1,0 +1,44 @@
+﻿<div id="parking-info">
+    <h4>{{mapFunction.selectedParkingLot.Street.Name}}{{mapFunction.selectedParkingLot.HouseNumber ? ', nr. ' + mapFunction.selectedParkingLot.HouseNumber : ''}}</h4>
+    <span style="font-size: 11px; color: lightgray;" ng-bind="mapFunction.selectedParkingLot.Street.ZipCode"></span>
+    <span style="font-size: 11px; color: lightgray;" ng-bind="mapFunction.selectedParkingLot.Street.City"></span>
+    <div style="padding: 0px 80px; text-align:center;">
+        <div>
+            <span style="font-size: 40px; color: #009688" ng-bind="mapFunction.selectedParkingLot.AvailablePlaces" ng-if="mapFunction.selectedParkingLot.AvailablePlaces != null && mapFunction.selectedParkingLot.AvailablePlaces >= 0"></span>
+            <span style="font-size: 40px; color: lightgray;" ng-if="mapFunction.selectedParkingLot.AvailablePlaces != null && mapFunction.selectedParkingLot.AvailablePlaces >= 0">/</span>
+            <span style="font-size: 40px; color: lightgray;" ng-bind="mapFunction.selectedParkingLot.PlaceNumber"></span>
+        </div>
+        <div>
+            <span style="font-size: 11px; color: lightgray;" ng-if="mapFunction.selectedParkingLot.AvailablePlaces != null && mapFunction.selectedParkingLot.AvailablePlaces >= 0">Available / </span>
+            <span style="font-size: 11px; color: lightgray;">Total</span>
+        </div>
+    </div>
+    <div>
+        <span class="misc-icon misc-icon-even-house" ng-if="mapFunction.selectedParkingLot.StreetDirection == 1" title="{{getStreetDirectionText(mapFunction.selectedParkingLot.StreetDirection)}}"></span>
+        <span class="misc-icon misc-icon-uneven-house" ng-if="mapFunction.selectedParkingLot.StreetDirection == 2" title="{{getStreetDirectionText(mapFunction.selectedParkingLot.StreetDirection)}}"></span>
+        <span class="misc-icon misc-icon-middle-road" ng-if="mapFunction.selectedParkingLot.StreetDirection == 3" title="{{getStreetDirectionText(mapFunction.selectedParkingLot.StreetDirection)}}"></span>
+        <span class="misc-icon misc-icon-parking-area" ng-if="mapFunction.selectedParkingLot.StreetDirection == 4" title="{{getStreetDirectionText(mapFunction.selectedParkingLot.StreetDirection)}}"></span>
+        <span class="misc-icon misc-icon-embassy" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 1" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-visitor" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 2" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-shared-car" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 3" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-electric-car" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 4" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-disabled-car" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 5" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-motobike" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 6" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-private-parking" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 7" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-taxi" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 8" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon misc-icon-tourist-bus" ng-if="mapFunction.selectedParkingLot.ParkingRegulation == 9" title="{{getParkingRegulationText(mapFunction.selectedParkingLot.ParkingRegulation)}}"></span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 1" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">Marked lot</span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 2" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">30&deg;</span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 3" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">45&deg;</span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 4" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">60&deg;</span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 5" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">75&deg;</span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 6" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">90&deg;</span>
+        <span class="misc-icon" ng-if="mapFunction.selectedParkingLot.ParkingStandard == 7" title="{{getParkingStandardText(mapFunction.selectedParkingLot.ParkingStandard)}}">Not marked lot</span>
+        <span class="misc-icon misc-icon-internal-traffic" ng-if="mapFunction.selectedParkingLot.StreetOwnership == 1" title="{{getStreetOwnershipText(mapFunction.selectedParkingLot.StreetOwnership)}}"></span>
+        <span class="misc-icon misc-icon-municipal-parking" ng-if="mapFunction.selectedParkingLot.StreetOwnership == 2" title="{{getStreetOwnershipText(mapFunction.selectedParkingLot.StreetOwnership)}}"></span> 
+        <span class="misc-icon misc-icon-private-road" ng-if="mapFunction.selectedParkingLot.StreetOwnership == 3" title="{{getStreetOwnershipText(mapFunction.selectedParkingLot.StreetOwnership)}}"></span> 
+        <span class="misc-icon misc-icon-private-road" ng-if="mapFunction.selectedParkingLot.StreetOwnership == 4" title="{{getStreetOwnershipText(mapFunction.selectedParkingLot.StreetOwnership)}}"></span>
+        <span class="misc-icon red-text">{{mapFunction.selectedParkingLot.ParkingZone.Price.toFixed(2).replace('.', ',')}}</span>
+        <span class="misc-icon">,- per hour</span>
+    </div>
+</div>

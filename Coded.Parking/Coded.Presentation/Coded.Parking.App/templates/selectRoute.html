@@ -1,0 +1,20 @@
+﻿    <div class="suggested-parking" ng-repeat="route in directions.directionRoutes">
+        <div  ng-click="ctrl.markSelectedRoute(ctrl.$scope, $index)" class="route-item {{$index == ctrl.$scope.selectedRouteIndex ? 'active' : ''}}">
+            <div style="float: right;">
+                <div class="p-duration">{{route.legs[0].duration.text}}</div>
+                <div class="p-distance">{{route.legs[0].distance.text}}</div>
+            </div>
+
+               <div style="float: left;" class="icon flaticon-car"></div>
+               <div style="float: left; width: 70%;" class="p-address">Via {{route.summary}}</div>
+            
+            <div style="clear:both;"></div>
+        </div>
+        <hr ng-if="$index < directions.directionRoutes.length - 1" />
+    </div>
+    <div class="panel-buttons">
+        <a class="button-skip" ng-click="mapFunction.editMode = 0">Skip</a>
+        <a class="button-ok icon flaticon-turn24" ng-click="">Drive</a>
+    </div>
+    
+

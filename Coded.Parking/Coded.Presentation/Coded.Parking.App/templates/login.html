@@ -1,0 +1,29 @@
+﻿<div ng-controller="loginCtrl as ctl">
+    <div class="login-page">
+        <div class="content-box">
+            <div id="content">
+                <h1>Login</h1>
+                    <form class="login-form" id="login" ng-submit="ctl.logon()">
+                        <fieldset>
+                            <div class="input-field">
+                                <input type="text" class="input" placeholder="User name" required id="login" name="login" ng-model="userName" ng-minlength="3" title="Login" ng-keydown="loginFail = false" />
+                                <span class="required error" role="alert">User name is required</span>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" class="input" placeholder="Password" required id="password" name="password" ng-model="password" ng-minlength="3" title="Password" ng-keydown="loginFail = false" />
+                                <span class="required error" role="alert">Password is required</span>
+                            </div>
+                            <span class="error" ng-if="loginFail" role="alert">Password doesn't match</span>
+                            <div class="form-button">
+                                <input type="submit" class="btn-submit" value="Login" />
+                                <div class="form-link">
+                                    <a ng-click="forgotPasswordState = true" ng-href="#" href="#">Forgot password?</a>
+                                    <a ng-href="/account.html#/signup" class="sign-up" href="#">Sign up</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
